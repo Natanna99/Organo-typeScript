@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Banner } from "./components/Banner/Banner";
+import { Banner } from "./components/Banner";
 import { Form } from "./components/Form/Form";
 import { Sections } from "./components/Sections/Sections";
 import "./font";
@@ -61,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner img={"organo.png"} alt="Banner" />
       <Form
         setAllCollaborators={addCollaborator}
         times={times}
