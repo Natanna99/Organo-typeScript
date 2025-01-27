@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Banner } from "./components/Banner";
-import { Form } from "./components/Form/Form";
-import { Sections } from "./components/Sections/Sections";
+import { Form } from "./components/Form";
+import { Sections } from "./components/Sections";
 import "./font";
 import { v4 as uuidv4 } from "uuid";
+import {
+  ListCollaboratorsInterface,
+  ListTimeInterface,
+} from "./interface/appInterfaces";
 
 function App() {
   const [times, setTimes] = useState([
@@ -17,13 +21,15 @@ function App() {
       color: "#a6d157",
     },
   ]);
-  const [allCollaborators, setAllCollaborators] = useState([]);
+  const [allCollaborators, setAllCollaborators] = useState<
+    ListCollaboratorsInterface[]
+  >([]);
 
   /**
    * Função que adiciona um novo colaborador
    * @param {Array} collaborator
    */
-  const addCollaborator = (collaborator) => {
+  const addCollaborator = (collaborator: ListCollaboratorsInterface) => {
     setAllCollaborators((prev) => [...prev, collaborator]);
   };
 
@@ -31,7 +37,7 @@ function App() {
    * Função que adiciona um novo time
    * @param {string} time
    */
-  const addNewTime = (time) => {
+  const addNewTime = (time: ListTimeInterface) => {
     setTimes((prev) => [...prev, time]);
   };
 
@@ -39,7 +45,7 @@ function App() {
    * Função que deleta um colaborador
    * @param {string} id
    */
-  const deleteCollaborators = (id) => {
+  const deleteCollaborators = (id: string) => {
     setAllCollaborators((prev) =>
       prev.filter((collaborator) => collaborator?.id !== id)
     );
@@ -49,7 +55,7 @@ function App() {
    * Função que adiciona um colaborador aos favoritos
    * @param {string} id
    */
-  const favoriteCollaborator = (id) => {
+  const favoriteCollaborator = (id: string) => {
     setAllCollaborators((prev) => {
       return prev?.map((collaborator) =>
         collaborator?.id === id
@@ -59,6 +65,8 @@ function App() {
     });
   };
 
+  console.log(allCollaborators);
+
   return (
     <div className="App">
       <Banner img={"organo.png"} alt="Banner" />
@@ -67,7 +75,7 @@ function App() {
         times={times}
         setTimes={addNewTime}
       />
-      {times.map((time) => (
+      {times?.map((time) => (
         <Sections
           nameTime={time?.value}
           color={time?.color}
