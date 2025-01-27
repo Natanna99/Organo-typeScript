@@ -10,5 +10,6 @@ export interface ListCollaboratorsInterface {
   image: string;
   role: string;
   team?: string;
+  date: Date;
   fav?: boolean;
 }

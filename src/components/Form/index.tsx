@@ -22,6 +22,7 @@ export function Form({ setAllCollaborators, times, setTimes }: FormInterface) {
     role: "",
     image: "",
     team: "",
+    date: new Date(),
     id: uuidv4(),
   });
   const [valueTime, setValueTime] = useState({
@@ -38,6 +39,7 @@ export function Form({ setAllCollaborators, times, setTimes }: FormInterface) {
       role: "",
       image: "",
       team: "",
+      date: new Date(),
       id: uuidv4(),
     });
   };
@@ -92,6 +94,19 @@ export function Form({ setAllCollaborators, times, setTimes }: FormInterface) {
                 image: e.target.value,
               }))
             }
+          />
+          <Input
+            nameLabel={"Data de entrada no time"}
+            palceholder={""}
+            mandatory={true}
+            value={valueCollaborator.date.toISOString().split("T")[0]}
+            onChange={(e) =>
+              setValueCollaborator((prev) => ({
+                ...prev,
+                date: new Date(e.target.value),
+              }))
+            }
+            type="date"
           />
           <Select
             label={"Time"}

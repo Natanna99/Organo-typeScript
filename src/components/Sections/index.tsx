@@ -75,6 +75,7 @@ export function Sections({
                 name={collaborator?.name}
                 img={collaborator?.image}
                 role={collaborator?.role}
+                date={collaborator?.date}
                 deleteCollaborators={() =>
                   deleteCollaborators(collaborator?.id)
                 }

@@ -5,6 +5,7 @@ interface CardInterface {
   color: string;
   name: string;
   img: string;
+  date: Date;
   role: string;
   deleteCollaborators: () => void;
   favoriteCollaborator: () => void;
@@ -16,6 +17,7 @@ export function Card({
   name,
   img,
   role,
+  date,
   deleteCollaborators,
   favoriteCollaborator,
   fav,
@@ -52,6 +54,7 @@ export function Card({
       <div className={style.footerCard}>
         <h4>{name}</h4>
         <h5>{role}</h5>
+        <h5>{new Date(date).toLocaleDateString()}</h5>
         <div className={style.favorite}>
           <FontAwesomeIcon
             onClick={favoriteCollaborator}
