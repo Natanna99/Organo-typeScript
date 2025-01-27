@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Section.module.css";
 import { Card } from "../Card";
 import hexToRgba from "hex-to-rgba";

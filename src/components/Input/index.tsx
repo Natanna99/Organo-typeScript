@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Input.module.css";
 
 interface InputInterface extends React.InputHTMLAttributes<HTMLInputElement> {

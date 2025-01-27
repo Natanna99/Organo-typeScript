@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Select.module.css";
 import { ListTimeInterface } from "./../../interface/appInterfaces";
 

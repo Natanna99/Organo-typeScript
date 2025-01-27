@@ -1,6 +1,4 @@
-import React from "react";
 import style from "./Banner.module.css";
-
 interface BannerInterface {
   img: string;
   alt?: string;
