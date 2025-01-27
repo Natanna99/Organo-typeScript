@@ -1,6 +1,6 @@
 export interface ListTimeInterface {
   id: string;
-  time: string;
+  value: string;
   color: string;
 }
 
@@ -9,5 +9,6 @@ export interface ListCollaboratorsInterface {
   name: string;
   image: string;
   role: string;
+  team?: string;
   fav?: boolean;
 }
