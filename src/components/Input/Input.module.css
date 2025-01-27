@@ -17,6 +17,7 @@
   padding: 0.938rem;
   border-radius: var(--border-radius-10);
   border: 0.063rem solid var(--background-form);
+  color: var(--quaternary-color);
 }
 
 .inputText input:focus {

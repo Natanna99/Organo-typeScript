@@ -5,14 +5,12 @@ interface InputInterface extends React.InputHTMLAttributes<HTMLInputElement> {
   mandatory?: boolean;
   value: string;
   palceholder?: string;
-  type?: string;
 }
 
 export function Input({
   nameLabel,
   value,
   palceholder,
-  type = "text",
   mandatory = false,
   ...props
 }: InputInterface) {
@@ -21,7 +19,6 @@ export function Input({
       <label>{nameLabel}</label>
       <input
         required={mandatory}
-        type={type}
         value={value}
         placeholder={palceholder}
         {...props}
