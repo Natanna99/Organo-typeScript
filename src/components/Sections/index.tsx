@@ -1,7 +1,21 @@
 import React from "react";
 import style from "./Section.module.css";
-import { Card } from "../Card/Card";
+import { Card } from "../Card";
 import hexToRgba from "hex-to-rgba";
+import {
+  ListCollaboratorsInterface,
+  ListTimeInterface,
+} from "./../../interface/appInterfaces";
+
+interface SectionsInterface {
+  nameTime: string;
+  color: string;
+  id: string;
+  listCollaborators: ListCollaboratorsInterface[];
+  setTimes: (value: any) => void;
+  deleteCollaborators: (id: string) => void;
+  favoriteCollaborator: (id: string) => void;
+}
 
 export function Sections({
   nameTime,
@@ -11,13 +25,13 @@ export function Sections({
   deleteCollaborators,
   setTimes,
   favoriteCollaborator,
-}) {
+}: SectionsInterface) {
   /**
    * Altera a cor do time
    * @param {object} e
    */
-  const updateColor = (e, id) => {
-    setTimes((prev) =>
+  const updateColor = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
+    setTimes((prev: ListTimeInterface[]) =>
       prev?.map((time) =>
         time?.id === id ? { ...time, color: e.target.value } : time
       )
