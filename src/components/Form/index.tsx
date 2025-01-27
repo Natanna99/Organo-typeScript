@@ -4,9 +4,19 @@ import { v4 as uuidv4 } from "uuid";
 
 import { Input } from "../Input";
 import { Button } from "../Button";
-import { Select } from "../Select/Select";
+import { Select } from "../Select";
+import {
+  ListCollaboratorsInterface,
+  ListTimeInterface,
+} from "./../../interface/appInterfaces";
 
-export function Form({ setAllCollaborators, times, setTimes }) {
+interface FormInterface {
+  setAllCollaborators: (collaborator: ListCollaboratorsInterface) => void;
+  times: ListTimeInterface[];
+  setTimes: (time: any) => void;
+}
+
+export function Form({ setAllCollaborators, times, setTimes }: FormInterface) {
   const [valueCollaborator, setValueCollaborator] = useState({
     name: "",
     role: "",
@@ -20,7 +30,7 @@ export function Form({ setAllCollaborators, times, setTimes }) {
     color: "",
   });
 
-  const submitCollaborator = (e) => {
+  const submitCollaborator = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setAllCollaborators(valueCollaborator);
     setValueCollaborator({
@@ -32,7 +42,7 @@ export function Form({ setAllCollaborators, times, setTimes }) {
     });
   };
 
-  const submitTimeColor = (e) => {
+  const submitTimeColor = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setTimes(valueTime);
     setValueTime({
@@ -86,7 +96,6 @@ export function Form({ setAllCollaborators, times, setTimes }) {
           <Select
             label={"Time"}
             options={times}
-            mandatory={true}
             value={valueCollaborator.team}
             setValue={(e) =>
               setValueCollaborator((prev) => ({
