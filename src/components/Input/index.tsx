@@ -3,7 +3,7 @@ import style from "./Input.module.css";
 
 interface InputInterface extends React.InputHTMLAttributes<HTMLInputElement> {
   nameLabel: string;
-  mandatory: boolean;
+  mandatory?: boolean;
   value: string;
   palceholder?: string;
   type?: string;
@@ -11,10 +11,10 @@ interface InputInterface extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export function Input({
   nameLabel,
-  mandatory,
   value,
   palceholder,
   type = "text",
+  mandatory = false,
   ...props
 }: InputInterface) {
   return (
