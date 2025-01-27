@@ -2,6 +2,16 @@ import React from "react";
 import style from "./Card.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+interface CardInterface {
+  color: string;
+  name: string;
+  img: string;
+  role: string;
+  deleteCollaborators: () => void;
+  favoriteCollaborator: () => void;
+  fav?: boolean;
+}
+
 export function Card({
   color,
   name,
@@ -10,10 +20,16 @@ export function Card({
   deleteCollaborators,
   favoriteCollaborator,
   fav,
-}) {
-  const isValidUrl = (url) => {
+}: CardInterface) {
+  /**
+   * @description - Verifica se a url é válida
+   * @param url - url da imagem
+   * @returns
+   */
+  const isValidUrl = (url: string) => {
     return url && (url.includes("https") || url.includes("http"));
   };
+
   const imageDefault =
     "https://img.myloview.com.br/adesivos/avatar-cabeca-perfil-silhueta-chamada-centro-masculino-foto-700-151766550.jpg";
 
@@ -21,7 +37,7 @@ export function Card({
     <div className={style.collaborators}>
       <div className={style.containerClose}>
         <FontAwesomeIcon
-          icon="fa-solid fa-xmark"
+          icon={["fas", "xmark"]}
           onClick={deleteCollaborators}
           className={style.deleteButton}
         />
@@ -40,7 +56,7 @@ export function Card({
         <div className={style.favorite}>
           <FontAwesomeIcon
             onClick={favoriteCollaborator}
-            icon={fav ? "fa-solid fa-heart" : "fa-regular fa-heart"}
+            icon={fav ? ["fas", "heart"] : ["far", "heart"]}
           />
         </div>
       </div>
