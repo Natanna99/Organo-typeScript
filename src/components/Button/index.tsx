@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Button.module.css";
 
 interface ButtonInteface {
-  children: React.ReactNode;
+  children: React.ReactElement | string;
   clickSubmit?: () => void;
 }
 
