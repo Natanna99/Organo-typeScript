@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button } from "../Button/Button";
-import { Input } from "../Input/Input";
-import { Select } from "../Select/Select";
 import style from "./Form.module.css";
 import { v4 as uuidv4 } from "uuid";
+
+import { Input } from "../Input";
+import { Button } from "../Button";
+import { Select } from "../Select/Select";
 
 export function Form({ setAllCollaborators, times, setTimes }) {
   const [valueCollaborator, setValueCollaborator] = useState({
@@ -51,7 +52,7 @@ export function Form({ setAllCollaborators, times, setTimes }) {
             palceholder={"Digite seu nome"}
             mandatory={true}
             value={valueCollaborator.name}
-            setValue={(e) =>
+            onChange={(e) =>
               setValueCollaborator((prev) => ({
                 ...prev,
                 name: e.target.value,
@@ -63,7 +64,7 @@ export function Form({ setAllCollaborators, times, setTimes }) {
             palceholder={"Digite seu cargo"}
             mandatory={true}
             value={valueCollaborator.role}
-            setValue={(e) =>
+            onChange={(e) =>
               setValueCollaborator((prev) => ({
                 ...prev,
                 role: e.target.value,
@@ -75,7 +76,7 @@ export function Form({ setAllCollaborators, times, setTimes }) {
             palceholder={"Infome a URL da imagem do github"}
             mandatory={true}
             value={valueCollaborator.image}
-            setValue={(e) =>
+            onChange={(e) =>
               setValueCollaborator((prev) => ({
                 ...prev,
                 image: e.target.value,
@@ -105,7 +106,7 @@ export function Form({ setAllCollaborators, times, setTimes }) {
             palceholder={"Digite o nome do time"}
             mandatory
             value={valueTime.value}
-            setValue={(e) =>
+            onChange={(e) =>
               setValueTime((prev) => ({
                 ...prev,
                 value: e.target.value,
@@ -118,7 +119,7 @@ export function Form({ setAllCollaborators, times, setTimes }) {
             mandatory
             type={"color"}
             value={valueTime.color}
-            setValue={(e) =>
+            onChange={(e) =>
               setValueTime((prev) => ({
                 ...prev,
                 color: e.target.value,
